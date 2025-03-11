@@ -78,11 +78,31 @@
                         <li>
                             <a href="https://www.facebook.com/antena.dorada.5" target="_blank"><img src="img/facebook.png" alt="facebook" width="48" height="48"></a>
                             <a href="https://antenadoradasalpo.blogspot.com" target="_blank"><img src="img/instagram.png" alt="instagram" width="48" height="48"></a>
-
-
-                               <a href="https://www.tiktok.com/@radioantenadorada106.9fm" target="_blank"><img src="img/tiktok.png" alt="instagram" width="48" height="48"></a>
-                               
+                            <a href="https://www.tiktok.com/@radioantenadorada106.9fm" target="_blank"><img src="img/tiktok.png" alt="instagram" width="48" height="48"></a>
                             <a href="https://wa.me/51959489717" target="_blank"><img src="img/whatsapp.png" alt="whatsapp" width="48" height="48"></a>
+			    <button id="button"><img src="img/compartir.png" alt="compartir" width="48" height="48"></button>
+				</main>
+  <script>
+    const $button = document.querySelector('#button')
+    if ('share' in navigator) {
+      $button.addEventListener('click', share)
+      function share() {
+        navigator.share({
+          title: 'Probando Share API',
+          text: 'Compartimos Nuestra Aplicación',
+          url: 'https://reproduc.github.io/AntenaDoradaApp/',
+        })
+        .then(()=>{
+          alert('hemos logrado compartir')
+        })
+        .catch(()=>{
+          alert('no se pudo compartir, prueba usando https en un navegador móvil')
+        })
+      }
+    } else {
+      alert('No está disponible el API de web share')
+    }
+  </script>
                             </li>
                         <p>Antena Dorada 106.9 Fm - Señal que Avanza</p>
                     </ul>
